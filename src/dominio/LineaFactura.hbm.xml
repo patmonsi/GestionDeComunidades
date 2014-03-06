@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-may-2013 23:18:13 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="dominio.LineaFactura" table="LINEAFACTURA" schema="PUBLIC" catalog="PUBLIC">
+        <id name="idLinea" type="int">
+            <column name="ID_LINEA" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="factura" class="dominio.Factura" fetch="select" lazy="false">
+            <column name="NUMFACTURA" not-null="true" />
+        </many-to-one>
+        <many-to-one name="concepto" class="dominio.Concepto" fetch="select" lazy="false">
+            <column name="CLAVECONCEPTO" length="5" />
+        </many-to-one>
+        <property name="importelinea" type="java.lang.Double">
+            <column name="IMPORTELINEA" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="40" />
+        </property>
+    </class>
+</hibernate-mapping>

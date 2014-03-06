@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-may-2013 23:18:13 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="dominio.Comunidad" table="COMUNIDADES" schema="PUBLIC" catalog="PUBLIC">
+        <id name="nombre" type="string">
+            <column name="NOMBRE" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="calle" type="string">
+            <column name="CALLE" length="40" />
+        </property>
+        <property name="maxRecibosPendientes" type="java.lang.Integer">
+            <column name="MAX_RECIBOS_PENDIENTES" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="40" />
+        </property>
+         <many-to-one name="presidente" class="dominio.Propietario" fetch="select" lazy="false" >
+            <column name="PROPIETARIO"  />
+        </many-to-one>
+        <set name="facturas" inverse="true" lazy="true" table="FACTURA" fetch="select">
+            <key>
+                <column name="NOMBRE" length="10" not-null="true" />
+            </key>
+            <one-to-many class="dominio.Factura" />
+        </set>
+        <set name="inmuebles" inverse="true" lazy="false" table="INMUEBLES" fetch="select">
+            <key>
+                <column name="NOMBRE" length="10" />
+            </key>
+            <one-to-many class="dominio.Inmueble" />
+        </set>
+        <set name="notaInformativas" inverse="true" lazy="true" table="NOTAINFORMATIVA" fetch="select">
+            <key>
+                <column name="NOMBRE" length="10" not-null="true" />
+            </key>
+            <one-to-many class="dominio.NotaInformativa" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-may-2013 23:18:13 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="dominio.Propietario" table="PROPIETARIOS" schema="PUBLIC" catalog="PUBLIC">
+        <id name="nif" type="string">
+            <column name="NIF" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="40" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="40" />
+        </property>
+        <property name="poblacion" type="string">
+            <column name="POBLACION" length="40" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="10" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="OBSERVACIONES" length="10" />
+        </property>
+        <property name="fechaAlta" type="date">
+            <column name="FECHA_ALTA" length="10" />
+        </property>
+        <property name="entidad" type="string">
+            <column name="ENTIDAD" length="20" />
+        </property>
+        <property name="numerocuenta" type="java.lang.Integer">
+            <column name="NUMEROCUENTA" />
+        </property>
+        <set name="inmuebles" inverse="true" lazy="true" table="INMUEBLES" fetch="select">
+            <key>
+                <column name="NIF" length="10" not-null="true" />
+            </key>
+            <one-to-many class="dominio.Inmueble" />
+        </set>
+    </class>
+</hibernate-mapping>

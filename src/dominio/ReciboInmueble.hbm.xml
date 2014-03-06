@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-may-2013 23:18:13 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="dominio.ReciboInmueble" table="RECIBOINMUEBLE" schema="PUBLIC" catalog="PUBLIC">
+        <id name="idRecibo" type="int">
+            <column name="ID_RECIBO" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="notaInformativa" class="dominio.NotaInformativa" fetch="select" lazy="false" >
+            <column name="ID_NOTA" not-null="true" />
+        </many-to-one>
+        <many-to-one name="inmueble" class="dominio.Inmueble" fetch="select" lazy="false">
+            <column name="ID_INMUEBLE" not-null="true" />
+        </many-to-one>
+        <property name="fechapago" type="date">
+            <column name="FECHAPAGO" length="10" />
+        </property>
+        <property name="importe" type="java.lang.Double">
+            <column name="IMPORTE" />
+        </property>
+    </class>
+</hibernate-mapping>

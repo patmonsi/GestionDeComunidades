@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-may-2013 23:18:13 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="dominio.Factura" table="FACTURA" schema="PUBLIC" catalog="PUBLIC">
+        <id name="numfactura" type="int">
+            <column name="NUMFACTURA" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="notaInformativa" class="dominio.NotaInformativa" fetch="select" lazy="false" >
+            <column name="ID_NOTA"  />
+        </many-to-one>
+        <many-to-one name="comunidad" class="dominio.Comunidad" fetch="select" lazy="false">
+            <column name="NOMBRE" length="10" not-null="true" />
+        </many-to-one>
+        <property name="fechafactura" type="date">
+            <column name="FECHAFACTURA" length="10" />
+        </property>
+        <set name="lineaFacturas" inverse="true" lazy="false" table="LINEAFACTURA" fetch="select">
+            <key>
+                <column name="NUMFACTURA" not-null="true" />
+            </key>
+            <one-to-many class="dominio.LineaFactura" />
+        </set>
+
+    </class>
+</hibernate-mapping>

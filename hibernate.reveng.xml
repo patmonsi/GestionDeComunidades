@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-catalog="PUBLIC" match-schema="PUBLIC"
+		match-name="COMUNIDADES" />
+	<table-filter match-catalog="PUBLIC" match-schema="PUBLIC"
+		match-name="INMUEBLES" />
+	<table-filter match-catalog="PUBLIC" match-schema="PUBLIC"
+		match-name="PROPIETARIOS" />
+	<table-filter match-catalog="PUBLIC" match-schema="PUBLIC" 
+		match-name="CONCEPTO"/>
+    <table-filter match-catalog="PUBLIC" match-schema="PUBLIC" 
+    	match-name="FACTURA"/>
+    <table-filter match-catalog="PUBLIC" match-schema="PUBLIC" 
+    	match-name="LINEAFACTURA"/>
+    <table-filter match-catalog="PUBLIC" match-schema="PUBLIC" 
+    	match-name="NOTAINFORMATIVA"/>
+    <table-filter match-catalog="PUBLIC" match-schema="PUBLIC" 
+    	match-name="RECIBOINMUEBLE"/>
+	
+	<table catalog="PUBLIC" schema="PUBLIC" name="COMUNIDADES" class="dominio.Comunidad"></table>
+	<table catalog="PUBLIC" schema="PUBLIC" name="PROPIETARIOS" class="dominio.Propietario"></table>
+	<table catalog="PUBLIC" schema="PUBLIC" name="INMUEBLES" class="dominio.Inmueble"></table>
+	<table catalog="PUBLIC" schema="PUBLIC" name="CONCEPTO" class="dominio.Concepto"></table>
+	<table catalog="PUBLIC" schema="PUBLIC" name="FACTURA" class="dominio.Factura"></table>
+	<table catalog="PUBLIC" schema="PUBLIC" name="LINEAFACTURA" class="dominio.LineaFactura"></table>
+	<table catalog="PUBLIC" schema="PUBLIC" name="NOTAINFORMATIVA" class="dominio.NotaInformativa"></table>
+	<table catalog="PUBLIC" schema="PUBLIC" name="RECIBOINMUEBLE" class="dominio.ReciboInmueble"></table>
+
+</hibernate-reverse-engineering>

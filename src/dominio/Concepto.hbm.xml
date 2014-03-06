@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-may-2013 23:18:13 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="dominio.Concepto" table="CONCEPTO" schema="PUBLIC" catalog="PUBLIC">
+        <id name="claveconcepto" type="string">
+            <column name="CLAVECONCEPTO" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="30" />
+        </property>
+        <set name="lineaFacturas" inverse="true" lazy="false" table="LINEAFACTURA" fetch="select">
+            <key>
+                <column name="CLAVECONCEPTO" length="5" />
+            </key>
+            <one-to-many class="dominio.LineaFactura" />
+        </set>
+    </class>
+</hibernate-mapping>
